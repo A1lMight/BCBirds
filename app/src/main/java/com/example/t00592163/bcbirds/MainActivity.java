@@ -22,11 +22,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    private int count = 0;
-    //private TextView Number;
-    public final static String COUNT = "Bird";
-    public final static  String MY_PREFERENCE_FILE ="MY_PREFERENCE_FILE";
-    //SharedPreferences sharedPreferences;
+
     public static ArrayList<Bird> birdArrayList;
 
     @Override
@@ -39,12 +35,6 @@ public class MainActivity extends AppCompatActivity {
         birdArrayList = new ArrayList<Bird>();
         GridView gridView = findViewById(R.id.birdGrid);
 
-        //sharedPreferences = getApplicationContext().getSharedPreferences(MY_PREFERENCE_FILE, MODE_PRIVATE);
-
-        /*if (sharedPreferences != null) {
-            count = sharedPreferences.getInt(COUNT, 0);
-            Number.setText(count + "");
-        }*/
 
         try
         {
@@ -110,11 +100,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    /*public void BirdIncrease(View view)
-    {
-        count = Integer.parseInt(Number.getText().toString()) + 1;
-        Number.setText(count + "");
-    }*/
+
 
     public String loadJSONFromAsset(String filename)
     {
@@ -153,18 +139,13 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+
         Toast.makeText(getApplicationContext(), "Resuming", Toast.LENGTH_SHORT).show();
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-
-        //SharedPreferences.Editor editor = sharedPreferences.edit();
-        //editor.putInt(COUNT, count);
-        //editor.apply();
-
-
 
         Toast.makeText(getApplicationContext(), "Paused", Toast.LENGTH_SHORT).show();
     }
@@ -179,12 +160,14 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+
         Toast.makeText(getApplicationContext(), "Destroyed", Toast.LENGTH_SHORT).show();
     }
 
     @Override
     protected void onRestart() {
         super.onRestart();
+
         Toast.makeText(getApplicationContext(), "RESTARTED", Toast.LENGTH_SHORT).show();
     }
 
